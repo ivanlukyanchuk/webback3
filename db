@@ -1,0 +1,27 @@
+CREATE TABLE users (
+  id int(10) unsigned NOT NULL AUTO_INCREMENT,
+  fio varchar(150) NOT NULL,
+  email varchar(50) NOT NULL,
+  birthdaydate DATE not NULL,
+  male int not NULL,
+  biography varchar(500) NOT NULL default '',
+  PRIMARY KEY (id)
+);
+CREATE TABLE prlang(
+Id INT PRIMARY KEY AUTO_INCREMENT,
+userid int(10) unsigned,
+language varchar(10) not NULL,
+FOREIGN KEY (userid)  REFERENCES users (id)
+);
+INSERT users(fio, email, birthdaydate, male) 
+VALUES
+('Пупкин Андрей', 'hsdffk@mail.ru', '02.02.2000', 0),
+('Пупкин Второй', 'hsdasffk@mail.ru', '01.02.2000', 0);
+INSERT prlang(userid,language) 
+VALUES
+(1, 'Pascal');
+-- select * from users,prlang;
+
+SELECT users.fio,users.Id,prlang.language
+FROM users
+left JOIN prlang ON users.Id = prlang.userid;
