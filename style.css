@@ -7,7 +7,11 @@
 
 /* Стили для формы */
 .form {
-    margin-top: 20px; /* Отступ сверху для формы */
+    margin-top: 20px;
+    /* Отступ сверху для формы */
+    max-width: 70%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Стили для списка ссылок */
