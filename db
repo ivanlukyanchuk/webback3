@@ -1,4 +1,4 @@
-CREATE TABLE users (
+CREATE TABLE applications (
     id INT AUTO_INCREMENT PRIMARY KEY,
     full_name VARCHAR(150) NOT NULL,
     phone VARCHAR(15) NOT NULL,
@@ -8,9 +8,15 @@ CREATE TABLE users (
     bio TEXT
 );
 
-CREATE TABLE user_languages (
+CREATE TABLE languages (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    user_id INT NOT NULL,
-    language VARCHAR(20) NOT NULL,
-    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+    name VARCHAR(50) UNIQUE NOT NULL
+);
+
+CREATE TABLE application_languages (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    application_id INT NOT NULL,
+    language_id INT NOT NULL,
+    FOREIGN KEY (application_id) REFERENCES applications(id) ON DELETE CASCADE,
+    FOREIGN KEY (language_id) REFERENCES languages(id) ON DELETE CASCADE
 );
