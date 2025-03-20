@@ -1,0 +1,2 @@
+select ap.id,ap.full_name,ap.phone,ap.email,ap.birth_date, ap.gender, ap.bio, lang.name from applications ap join application_languages apl on ap.id = apl.application_id
+join languages lang on lang.id = apl.language_id;
